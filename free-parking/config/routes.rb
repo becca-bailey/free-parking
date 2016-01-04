@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :games do
     resources :reviews, only: [:edit, :new, :destroy]
   end
+
+  devise_for :users
+
 end
