@@ -3,9 +3,10 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.references :reviewer
       t.references :games
-      t.integer :fun_rating, null: false
-      t.integer :difficulty_rating, null: false
-      t.text :content
+      t.integer    :fun_rating, null: false
+      t.integer    :difficulty_rating, null: false
+      t.text       :content
+
       t.timestamps null: false
     end
   end
