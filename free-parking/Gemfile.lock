@@ -162,9 +162,9 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
-  faker
   devise (~> 3.5.2)
   devise_invitable (~> 1.5.2)
+  faker
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)
