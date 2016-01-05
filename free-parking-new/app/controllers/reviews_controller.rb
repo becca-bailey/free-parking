@@ -18,15 +18,24 @@ class ReviewsController < ApplicationController
     end
 
     def edit
+        @game = Game.find_by(id: params[:game_id])
+        @review = Review.find_by(id: params[:id])
     end
 
     def update
-    end
+        @game = Game.find_by(id: params[:game_id])
+        @review = Review.find_by(id: params[:id])
+        @review.update(review_params)
 
-    def delete
+        redirect_to game_path(@game)
     end
 
     def destroy
+        @game = Game.find_by(id: params[:game_id])
+        @review = Review.find_by(id: params[:id])
+        @review.destroy
+
+        redirect_to game_path(@game)
     end
 
     private

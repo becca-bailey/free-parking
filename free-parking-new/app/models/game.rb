@@ -18,4 +18,5 @@ class Game < ActiveRecord::Base
     end
     (total / reviews.length).round(2)
   end
+
 end
