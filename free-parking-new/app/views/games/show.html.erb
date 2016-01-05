@@ -10,20 +10,24 @@
     <li>Link: <%= link_to @game.info_link, @game.info_link %></li>
   </ul>
 
-    <% if current_user %>
-      <% current_user.groups.each do |group| %>
-        <b><%= group.name %></b>
+  <% if current_user %>
+    <% current_user.groups.each do |group| %>
+      <div class="group-name"><%=link_to group.name, group_path(group)%></div><br>
+      <div class="group-games">
         <ul>
-        <% group.members do |user| %>
-          <% user.games do |game| %>
-            <% if @game.name == game.name %>
-            <li><%= user.name %> has this game.</li>
+          <% group.members.each do |user| %>
+            <% user.games.each do |game| %>
+              <% if @game.name == game.name %>
+                <% if current_user.id != user.id %>
+                    <li><%= user.name %> has this game.</li>
+                <% end %>
+              <% end %>
             <% end %>
           <% end %>
         </ul>
-        <% end %>
-      <% end %>
+      </div>
     <% end %>
+  <% end %>
 
   <% if current_user  %>
     <h4><%= link_to "Leave a Review", new_game_review_path(@game) %></h4>
@@ -32,15 +36,6 @@
   <%= render @reviews %>
 
 
-<!--   <h3>Reviews:</h3>
-    <% @game.reviews.each do |review| %>
-      <ul>
-        <li>Review By: <%= review.reviewer.name %></li>
-        <li>Fun Score: <%= review.fun_rating %></li>
-        <li>Difficulty Score: <%= review.difficulty_rating %></li>
-        <li><%= review.content %></li>
-      </ul>
-      <br>
-    <% end %> -->
+
 
 </div>
