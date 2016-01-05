@@ -1,0 +1,57 @@
+body {
+    background-color: #FBFFF0;
+}
+
+.container {
+	background-color: #ffffff;
+	border: 2pt solid #c6ceb2;
+	border-radius: 30px;
+  margin: 0 auto;
+  padding: 5%;
+  width: 90%;
+}
+
+
+/* =Top Bar
+-------------------------------------------------------------- */
+#top-bar {
+  background-color: #311c3a; 
+}
+
+#top-bar a {
+  color: white;
+  display: inline-block;
+  font-size: .8em;
+  margin: 0;
+  padding: 5px; 
+  text-transform: uppercase;
+}
+
+#top-bar a:hover {
+  background-color: #a91c44; 
+}
+
+/*--- left and right spans of top bar ---*/
+span.login,
+span.logout {
+  display: block;
+  float: left;
+  text-align: left; 
+  width: 50%; 
+}
+
+span.profile {
+  display: block;
+  float: right;
+  text-align: right;
+  width: 50%;  
+}
+
+.fa-photo, .fa-th-large,  {
+  color: #00B4CC;
+  /*padding: 1em;*/
+  /*text-shadow: 1px 1px 1px #000;*/
+}
+
+.fa-photo:hover { color: white; }
+

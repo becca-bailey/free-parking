@@ -1,14 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>FreeParkingNew</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	  <title>FreeParkingNew</title>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
 </head>
+
 <body>
+<div id="top-bar">
+  <div class="clearfix">
+
+		<% if @current_user %>
+		  <span class="logout"><a href=""><i class="fa fa-long-arrow-left"></i> Logout</a></span>
+		<% else %>
+		     <span class="login color-4"><a href=""><i class="fa fa-long-arrow-right color-4"></i> Login</a></span>
+		<% end %>
+
+		<% if @current_user %>
+		    <span class="profile"><a href=""><i class="fa fa-user-plus"></i> Profile</a></span>
+		<% else %>
+		    <span class="profile"><a href="/"><i class="fa fa-user-plus"></i> Register</a></span>
+		<% end %>
+
+  </div>
+</div> 
+
+  <div class="row">
+    <div class="large-12 columns">
+      <h1><i class="fa fa-puzzle-piece"></i>FreeParking</h1>
+    </div>
+  </div>
+
+  <nav>
+	  <ul>
+		  <li><%= link_to 'Games', games_path %></li>
+		  <li></li>
+	  </ul>
+  </nav>
+
+
 
 <%= yield %>
 
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/what-input.min.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
+
+
