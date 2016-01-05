@@ -1,4 +1,7 @@
 class InviteMailer < ApplicationMailer
-  def new_user_invite(user, invite)
+  default from: "freeparking37@gmail.com"
+  def send_invite(user)
+    @user = user
+    mail(to: @user.email, subject: "This is an email.")
   end
 end
