@@ -1,0 +1,11 @@
+<div class="container">
+  <%= form_for(:session, url: login_path) do |f| %>
+    Enter your email and password to login.
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.submit %>
+  <% end %>
+  <%= link_to "Back", root_path %>
+</div>

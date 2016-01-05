@@ -43,6 +43,7 @@ GEM
       jmespath (~> 1.0)
     aws-sdk-resources (2.2.8)
       aws-sdk-core (= 2.2.8)
+    bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -180,6 +181,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
   byebug

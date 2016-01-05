@@ -1,0 +1,20 @@
+<div class="container">
+  <h2><%= @user.name %></h2>
+  <h2><%= @user.email %></h2>
+  <p><%= @user.bio %></p>
+  <div class="my-groups">
+    <% @user.groups.each do |group| if @user.groups %>
+      <%= link_to group.name group_path(group) %>
+    <% end %>
+  </div>
+  <div class="my-games">
+    <% @user.games.each do |game| if @user.games %>
+      <%= link_to game.name game_path(game) %>
+    <% end %>
+  </div>
+  <div class="my-reviews">
+    <% @user.reviews.each do |review| if @user.reviews %>
+      <%= render "review", review: review %>
+    <% end %>
+  </div>
+ </div>
