@@ -19,6 +19,10 @@ class GamesController < ApplicationController
       @games = @games.sort_by { |a| a.difficulty_average }
     elsif params[:sort_by] == "dif_desc"
       @games = @games.sort_by { |a| a.difficulty_average }.reverse
+    elsif params[:sort_by] == "players_asc"
+      @games = @games.sort_by { |a| a.min_players }
+    elsif params[:sort_by] == "players_desc"
+      @games = @games.sort_by { |a| a.min_players }.reverse
     else
       @games = @games = @games.sort_by { |a| a.name }
     end
@@ -32,18 +36,41 @@ class GamesController < ApplicationController
   end
 
   def new
+    @game = Game.new
   end
 
   def create
+    @game = current_user.created_games.build(game_params)
+    if @game.save
+      redirect_to root_path
+    else
+      render "new"
+    end
   end
 
-  def edit
-  end
 
-  def update
-  end
 
-  def destroy
-  end
+    def edit
+        @game = Game.find_by(id: params[:id])
+    end
 
+    def update
+        @game = Game.find_by(id: params[:id])
+        @game.update(game_params)
+
+        redirect_to game_path(@game)
+    end
+
+    def destroy
+        @game = Game.find_by(id: params[:id])
+        @game.destroy
+
+        redirect_to root_path
+    end
+
+  private
+
+  def game_params
+    params.require(:game).permit(:name, :image_url, :description, :info_link, :min_players, :max_players)
+  end
 end

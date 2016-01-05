@@ -9,7 +9,7 @@
 
 
   <div class="my-groups right">
-    <h4>Groups:</h4>
+    <h4>Your Groups:</h4>
     <% @user.groups.each do |group| if @user.groups %>
       <%= link_to group.name, group_path(group) %>
       <br>
@@ -23,7 +23,7 @@
   </div>
 
   <div class="my-games">
-    <h4>Games:</h4>
+    <h4>Games You Own:</h4>
     <% @user.games.each do |game| if @user.games %>
       <%= link_to game.name, game_path(game) %>
     <% end %>
@@ -31,13 +31,12 @@
   </div>
 
   <div class="my-reviews">
-    <h4>Reviews:</h4>
-    <% @user.reviews.each do |review| if @user.reviews %>
-      <%= render partial: "user_review", locals: {review: review} %>
-    <% end %>
+      <% @user.reviews.each do |review| if @user.reviews %>
+        Game Name: <%= review.game.name %>
+        <%= render partial: "user_review", locals: {review: review} %>
+        <% end %>
     <% end %>
   </div>
-
 
  </div>
 
