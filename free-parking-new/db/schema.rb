@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160104212722) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name",        null: false
-    t.string   "image"
+    t.string   "image_url"
     t.text     "description"
     t.string   "info_link"
     t.integer  "min_players", null: false
@@ -76,6 +76,4 @@ ActiveRecord::Schema.define(version: 20160104212722) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "owned_games", "games"
-  add_foreign_key "owned_games", "users"
 end
