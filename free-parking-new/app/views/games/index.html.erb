@@ -1,1 +1,36 @@
-index.html.erb
+<div class = "">
+  <h2>Welcome to Free Parking! The source for all of your board-gaming-nerd-loving needs</h2>
+  <div class = "alphabet_nav">
+  <ul> <%= link_to "All", games_path %> |
+  <% @alphabet.each do |letter| %>
+      <%= link_to letter, games_path(:alphabet_sort => letter) %> |
+  <% end %>
+  </ul>
+  </div>
+
+  <table>
+    <tr>
+      <% if params[:sort_by] == "name_asc" %>
+        <td><%= link_to "Name", games_path(:sort_by => "name_desc", :alphabet_sort => params[:alphabet_sort]) %></td>
+      <% else %>
+        <td><%= link_to "Name", games_path(:sort_by => "name_asc", :alphabet_sort => params[:alphabet_sort]) %></td>
+      <% end %>
+      <% if params[:sort_by] == "fun_asc" %>
+        <td><%= link_to "Fun Rating", games_path(:sort_by => "fun_desc", :alphabet_sort => params[:alphabet_sort]) %></td>
+      <% else %>
+        <td><%= link_to "Fun Rating", games_path(:sort_by => "fun_asc", :alphabet_sort => params[:alphabet_sort]) %></td>
+      <% end %>
+      <% if params[:sort_by] == "dif_asc" %>
+        <td><%= link_to "Difficulty Rating", games_path(:sort_by => "dif_desc", :alphabet_sort => params[:alphabet_sort]) %></td>
+      <% else %>
+        <td><%= link_to "Difficulty Rating", games_path(:sort_by => "dif_asc", :alphabet_sort => params[:alphabet_sort]) %></td>
+      <% end %>
+    <% @games.each do |game| %>
+      <tr>
+          <td><%= game.name %></td>
+          <td><%= game.fun_average %></td>
+          <td><%= game.difficulty_average %></td>
+      </tr>
+    <% end %>
+
+</div>
