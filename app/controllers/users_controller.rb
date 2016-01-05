@@ -31,9 +31,30 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = @user.reviews
+    @user_reviews = []
+    @reviews.each do |review|
+      game_id = review.game_id
+      game = Game.find_by(id: game_id)
+      @user_reviews << game
+    end
+    @user_reviews
   end
 
   def destroy
+  end
+
+
+  def add_game
+    @game = Game.find_by(id: params[:id])
+    current_user.games << @game
+    redirect_to game_path(@game)
+  end
+
+  def remove_game
+    @game = Game.find_by(id: params[:id])
+    current_user.games.delete(@game)
+
+    redirect_to game_path(@game)
   end
 
   private

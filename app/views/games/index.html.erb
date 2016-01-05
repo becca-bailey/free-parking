@@ -26,12 +26,22 @@
         <% else %>
           <td><%= link_to "Difficulty Rating", games_path(:sort_by => "dif_asc", :alphabet_sort => params[:alphabet_sort]) %></td>
         <% end %>
+        <% if params[:sort_by] == "players_asc" %>
+          <td><%= link_to "Players", games_path(:sort_by => "players_desc", :alphabet_sort => params[:alphabet_sort]) %></td>
+        <% else %>
+          <td><%= link_to "Players", games_path(:sort_by => "players_asc", :alphabet_sort => params[:alphabet_sort]) %></td>
+        <% end %>
       </div>
     <% @games.each do |game| %>
       <tr>
           <td><%= link_to game.name, game_path(game) %></td>
           <td><%= game.fun_average %></td>
           <td><%= game.difficulty_average %></td>
+          <% if game.max_players != nil && game.max_players != 0 %>
+            <td><%= game.min_players %>-<%= game.max_players %></td>
+          <% else %>
+            <td><%= game.min_players %></td>
+          <% end %>
       </tr>
     <% end %>
 
