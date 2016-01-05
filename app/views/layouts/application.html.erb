@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	  <title>FreeParkingNew</title>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application' %>
+	  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="main">
+  <div id="top-bar">
+  <div class="clearfix">
+
+		<% if current_user %>
+      <%= link_to new_game_path do %>
+        Create a Game
+      <% end %>
+  		<%= link_to logout_path, method: :delete do %>
+        <span class="logout"><i class="fa fa-long-arrow-left"></i> Logout</span>
+      <% end %>
+		<% else %>
+      <%= link_to login_path do %>
+		     <span class="login"><i class="fa fa-long-arrow-right color-4"></i> Login</span>
+      <% end %>
+		<% end %>
+
+    <% if current_user %>
+  		<%= link_to user_path(current_user.id) do %>
+  		    <span class="profile"><i class="fa fa-user"></i> Profile</span>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_path do %>
+  		    <span class="profile"><i class="fa fa-user-plus"></i> Register</span>
+      <% end %>
+		<% end %>
+
+  </div>
+</div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <%= link_to root_path do %>
+      <h1>
+        <i class="fa fa-puzzle-piece"></i>FreeParking
+      </h1>
+      <% end %>
+    </div>
+  </div>
+
+  <nav>
+	  <ul>
+		  <li><%= link_to 'Games', games_path %></li>
+		  <li></li>
+	  </ul>
+  </nav>
+
+
+
+<%= yield %>
+
+</div>
+</body>
+</html>
+
+
