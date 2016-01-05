@@ -7,29 +7,32 @@
     <li>Difficulty Score: <%= @game.difficulty_average %></li>
     <br>
     <li>Description: <%= @game.description %></li>
-    <li>Link: <%= @game.info_link %></li>
+    <li>Link: <%= link_to @game.info_link, @game.info_link %></li>
   </ul>
 
-  <% if session[:user_id] %>
-    <% current_user.groups.each do |group| %>
-      <b><%= group.name %></b>
-      <ul>
-      <% group.members do |user| %>
-        <% user.games do |game| %>
-          <% if @game.name == game.name %>
-          <li><%= user.name %> has this game.</li>
+    <% if current_user %>
+      <% current_user.groups.each do |group| %>
+        <b><%= group.name %></b>
+        <ul>
+        <% group.members do |user| %>
+          <% user.games do |game| %>
+            <% if @game.name == game.name %>
+            <li><%= user.name %> has this game.</li>
+            <% end %>
           <% end %>
+        </ul>
         <% end %>
-      </ul>
       <% end %>
     <% end %>
+
+  <% if current_user  %>
+    <h4><%= link_to "Leave a Review", new_game_review_path(@game) %></h4>
   <% end %>
+  <h4>Reviews: </h4>
+  <%= render @reviews %>
 
-  <h4><%= link_to "Leave a Review", new_game_review_path(@game) %></h4>
 
-
-
-  <h3>Reviews:</h3>
+<!--   <h3>Reviews:</h3>
     <% @game.reviews.each do |review| %>
       <ul>
         <li>Review By: <%= review.reviewer.name %></li>
@@ -38,6 +41,6 @@
         <li><%= review.content %></li>
       </ul>
       <br>
-    <% end %>
+    <% end %> -->
 
 </div>

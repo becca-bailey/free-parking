@@ -2,19 +2,28 @@
   <h2><%= @user.name %></h2>
   <h2><%= @user.email %></h2>
   <p><%= @user.bio %></p>
+
   <div class="my-groups">
+    <h4>Groups:</h4>
     <% @user.groups.each do |group| if @user.groups %>
-      <%= link_to group.name group_path(group) %>
+      <%= link_to group.name, group_path(group) %>
+    <% end %>
     <% end %>
   </div>
+
   <div class="my-games">
+    <h4>Games:</h4>
     <% @user.games.each do |game| if @user.games %>
-      <%= link_to game.name game_path(game) %>
+      <%= link_to game.name, game_path(game) %>
+    <% end %>
     <% end %>
   </div>
+
   <div class="my-reviews">
+    <h4>Reviews:</h4>
     <% @user.reviews.each do |review| if @user.reviews %>
-      <%= render "review", review: review %>
+      <%= render @reviews %>
+    <% end %>
     <% end %>
   </div>
  </div>
