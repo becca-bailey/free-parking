@@ -16,6 +16,9 @@
   <div class="clearfix">
 
 		<% if current_user %>
+      <%= link_to new_game_path do %>
+        Create a Game
+      <% end %>
   		<%= link_to logout_path do %>
         <span class="logout"><i class="fa fa-long-arrow-left"></i> Logout</span>
       <% end %>
