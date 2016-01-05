@@ -1,6 +1,6 @@
 <div class="container">
   <%= form_for(@user) do |f| %>
-    Create a new account.
+    <p>Create a new account.</p>
     <% if @token != nil %>
       <%= hidden_field_tag :invite_token, @token %>
     <% end %>
