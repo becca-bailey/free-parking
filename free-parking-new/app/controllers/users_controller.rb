@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         grouping_id = invite.grouping_id
         grouping = Grouping.find_by(id: grouping_id)
         game_group = grouping.group
-        @user.groupings << game_group
+        @user.groups << game_group
       end
       session[:user_id] = @user.id
       flash[:message] = "You have successfully created an account."

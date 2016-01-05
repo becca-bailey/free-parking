@@ -12,22 +12,23 @@
 </head>
 
 <body>
-<div id="top-bar">
+  <div class="main">
+  <div id="top-bar">
   <div class="clearfix">
 
 		<% if current_user %>
-  		<%= link_to logout_path do %>
+  		<%= link_to logout_path, method: :delete do %>
         <span class="logout"><i class="fa fa-long-arrow-left"></i> Logout</span>
       <% end %>
 		<% else %>
       <%= link_to login_path do %>
-		     <span class="login color-4"><i class="fa fa-long-arrow-right color-4"></i> Login</span>
+		     <span class="login"><i class="fa fa-long-arrow-right color-4"></i> Login</span>
       <% end %>
 		<% end %>
 
     <% if current_user %>
   		<%= link_to user_path(current_user.id) do %>
-  		    <span class="profile"><i class="fa fa-user-plus"></i> Profile</span>
+  		    <span class="profile"><i class="fa fa-user"></i> Profile</span>
       <% end %>
     <% else %>
       <%= link_to new_user_path do %>
@@ -55,7 +56,7 @@
 
 <%= yield %>
 
-
+</div>
 </body>
 </html>
 

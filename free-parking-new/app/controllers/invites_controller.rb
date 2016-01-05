@@ -2,6 +2,7 @@ class InvitesController < ApplicationController
 
   def new
     @invite = Invite.new
+    @group = Group.find(params[:group_id])
   end
 
   def create

@@ -1,7 +1,7 @@
 <div class="container">
   <p>Invite your friends to this group!</p>
 
-  <%= form_for [@group @invite] do |f| %>
+  <%= form_for([@group, @invite]) do |f| %>
     <%= f.label :email %>
     <%= f.email_field :email %>
     <%= f.submit "Send Invite", class: 'button color-5' %>
