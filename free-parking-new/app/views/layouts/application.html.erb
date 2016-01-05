@@ -7,7 +7,7 @@
 	  <title>FreeParkingNew</title>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application' %>
 	  <%= csrf_meta_tags %>
 </head>
 
@@ -15,16 +15,24 @@
 <div id="top-bar">
   <div class="clearfix">
 
-		<% if @current_user %>
-		  <span class="logout"><a href=""><i class="fa fa-long-arrow-left"></i> Logout</a></span>
+		<% if current_user %>
+  		<%= link_to logout_path do %>
+        <span class="logout"><i class="fa fa-long-arrow-left"></i> Logout</span>
+      <% end %>
 		<% else %>
-		     <span class="login color-4"><a href=""><i class="fa fa-long-arrow-right color-4"></i> Login</a></span>
+      <%= link_to login_path do %>
+		     <span class="login color-4"><i class="fa fa-long-arrow-right color-4"></i> Login</span>
+      <% end %>
 		<% end %>
 
-		<% if @current_user %>
-		    <span class="profile"><a href=""><i class="fa fa-user-plus"></i> Profile</a></span>
-		<% else %>
-		    <span class="profile"><a href="/"><i class="fa fa-user-plus"></i> Register</a></span>
+    <% if current_user %>
+  		<%= link_to user_path(current_user.id) do %>
+  		    <span class="profile"><i class="fa fa-user-plus"></i> Profile</span>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_path do %>
+  		    <span class="profile"><i class="fa fa-user-plus"></i> Register</span>
+      <% end %>
 		<% end %>
 
   </div>
