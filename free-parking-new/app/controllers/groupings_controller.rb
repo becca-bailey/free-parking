@@ -1,8 +1,8 @@
 class GroupingsController < ApplicationController
   def new
     @invite = Invite.new
-    @grouping = Grouping.create!
-    @invite.grouping_id = @grouping.id
+    # @grouping = Grouping.create!
+    # @invite.grouping_id = @grouping.id
   end
 
   def create

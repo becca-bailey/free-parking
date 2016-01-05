@@ -1,27 +1,31 @@
 class InvitesController < ApplicationController
-  # before_create :generate_token
+
+  def new
+    @invite = Invite.new
+  end
 
   def create
     @invite = Invite.new(invite_params)
-    @invite.token = Digest::SHA1.hexdigest([@invite.grouping_id, Time.now, rand].join)
-    @invite.sender_id = current_user.id
+    puts params
+    puts params[:group_id]
+    @grouping = Grouping.create(group_id: params[:group_id])
+    @invite.sender = current_user
+    @invite.grouping = @grouping
     if @invite.save
-      InviteMailer.new_user_invite(@invite, new_user_path(invite_token: @invite.token)).deliver
+      puts "Saved!!"
+      InviteMailer.send_invite(@invite).deliver_now
+      flash[:message] = "Invite sent!"
+      redirect_to root_path
     else
       flash[:alert] = "Invalid email, please try again."
-      render "groupings#new"
+      render "invites/new"
     end
   end
 
   private
 
-  # def generate_token
-  #   self.token = Digest::SHA1.hexdigest([self.grouping_id, Time.now, rand].join)
-  # end
-
-
   def invite_params
-    params.require(:invite).permit(:email, :token, :grouping_id)
+    params.require(:invite).permit(:email, :token)
   end
 
 end

@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   get "groupings/new" => "groupings#new", as: "new_grouping"
   post "groupings" => "groupings#create"
 
-  resources :groups, except: [:index]
+  resources :groups, except: [:index] do
+    resources :invites
+  end
+
   resources :games do
     resources :reviews, except: [:index, :show]
   end
-  resources :invites
+
 end

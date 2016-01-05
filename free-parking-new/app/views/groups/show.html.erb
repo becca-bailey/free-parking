@@ -1,0 +1,5 @@
+<div class="container">
+  <h1><%= @group.name %></h1>
+<%= link_to "Invite a friend to join this group!", new_group_invite_path(group_id: @group.id) %>
+
+</div>

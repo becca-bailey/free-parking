@@ -14,14 +14,17 @@ class UsersController < ApplicationController
     @token = params[:invite_token]
     if @user.save
       if @token != nil
-        group = Invite.find_by_token(@token).user_group
-        @user.groupings.push(group)
+        invite = Invite.find_by(token: @token)
+        grouping_id = invite.grouping_id
+        grouping = Grouping.find_by(id: grouping_id)
+        game_group = grouping.group
+        @user.groupings << game_group
       end
       session[:user_id] = @user.id
       flash[:message] = "You have successfully created an account."
       redirect_to user_path(@user)
     else
-      render "users#new"
+      render "users/new"
     end
   end
 
