@@ -15,11 +15,6 @@
     <% @user.groups.each do |group| if @user.groups %>
       <%= link_to group.name, group_path(group) %>
       <br>
-      <% group.members.each do |user|  %>
-        <% if current_user.id != user.id %>
-          <p><%= link_to user.name, user_path(user.id)  %></p>
-        <% end %>
-      <% end %>
     <% end %>
     <% end %>
   </div>
