@@ -45,6 +45,7 @@ class InvitesController < ApplicationController
       current_user.groups << game_group
     end
     session.delete(:token)
+    invite.destroy
     redirect_to group_path(game_group)
   end
 
