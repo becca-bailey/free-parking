@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   has_many :owners, through: :owned_games, source: :user
   belongs_to :creator, class_name: "User"
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   validates_numericality_of :min_players
   validates_numericality_of :max_players, :greater_than_or_equal_to => :min_players, :message => "Max players must be greater or equal to min min_players`ers"
