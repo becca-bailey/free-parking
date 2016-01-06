@@ -7,13 +7,13 @@ feature "User visits a game page" do
   end
 
   scenario "Sees a game page" do
-    game = Game.new(name: "Dnd", min_players: 5)
+    game = Game.new(name: "Dnd", min_players: 5, max_players: 6)
     visit "/games/#{game.id}"
     expect(page).to have_content "Fun Rating"
   end
 
   scenario "Sees a game page" do
-    game = Game.new(name: "Dnd", min_players: 5)
+    game = Game.new(name: "Dnd", min_players: 5, max_players: 6)
     visit "/games/#{game.id}"
     expect(page).to have_content "Difficulty Rating"
   end

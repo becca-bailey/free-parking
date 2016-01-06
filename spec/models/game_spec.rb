@@ -8,12 +8,12 @@ describe Game do
   end
 
   it "creates a valid game" do
-    game = Game.new(name: "Dnd", min_players: 2)
+    game = Game.new(name: "Dnd", min_players: 2, max_players: 5)
     expect(game.valid?).to be true
   end
 
   it "has a working fun average method" do
-    game = Game.new(name: "Dnd", min_players: 5)
+    game = Game.new(name: "Dnd", min_players: 5, max_players: 5)
     game.save
     game.reviews.create(fun_rating: 5, difficulty_rating: 5)
     expect(game.fun_average).to be 5.0
@@ -21,7 +21,7 @@ describe Game do
   end
 
   it "has a average method that gives an average" do
-    game = Game.new(name: "Pop and Floop", min_players: 5)
+    game = Game.new(name: "Pop and Floop", min_players: 5, max_players: 5)
     game.save
     game.reviews.create(fun_rating: 5, difficulty_rating: 5)
     game.reviews.create(fun_rating: 2, difficulty_rating: 2)
