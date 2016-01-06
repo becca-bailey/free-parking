@@ -1,1 +1,6 @@
-<%= button_to "Join this group", join_group_path(@group, @invite)%>
+<% if check_membership(@group) %>
+  <p>You are already a member of this group.</p>
+  <%= link_to "View Group", group_path(@group) %>
+<% else %>
+  <%= button_to "Join this group", join_group_path(@group, @invite)%>
+<% end %>
