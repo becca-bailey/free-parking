@@ -1,18 +1,22 @@
-
-<div class="rating">
-  Fun Rating: <%= review.fun_rating %>
-</div>
-<div class="rating">
-  Difficulty Rating: <%= review.difficulty_rating %>
-</div>
 <div class="review-content">
-  Content: <%= review.content %>
+		<div class="review-details">
+    <% if current_user.name == review.reviewer.name %>
+    <ul>
+			<li><p><%= review.content %></p>
+			<div class="reviewer">
+					<p>-<%= review.reviewer.name %></p>
+				  <%= link_to "Delete", game_review_path(@game, review), method: :delete %>  |  
+				  <%= link_to "Edit", edit_game_review_path(@game, review) %>
+				<% end %></div>
+			</li>
+    </ul>
+  </div>
 </div>
-<div class="reviewer">
-  Author: <%= review.reviewer.name %></li>
-</div>
-<% if current_user.name == review.reviewer.name %>
-  <%= link_to "Delete", game_review_path(@game, review), method: :delete %>
-  <%= link_to "Edit", edit_game_review_path(@game, review) %>
-<% end %>
-<br>
+
+	<div class="game-reviews">
+    <ul>
+      <li><strong>Fun Score: </strong><div class="rating sm"><h2><%= review.fun_rating %></h2></div> </li>
+      <li><strong>Difficulty Score: </strong><div class="rating sm"><h2><%= review.difficulty_rating %></h2></div></li>
+    </ul>
+  </div>
+

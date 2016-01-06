@@ -1,5 +1,6 @@
 <div class = "container">
-  <h2>Welcome to Free Parking! The source for all of your board-gaming-nerd-loving needs</h2>
+  <h1>Welcome to Free Parking!</h1> 
+  <h3>The source for all of your board-gaming-nerd-loving needs</h3>
   <div class = "alphabet_nav">
   <ul> | <%= link_to "All", games_path %> |
   <% @alphabet.each do |letter| %>
@@ -7,7 +8,7 @@
   <% end %>
   </ul>
   </div>
-
+<div class="table">
   <table>
     <tr>
       <div class = "table_header_row">
@@ -44,5 +45,5 @@
           <% end %>
       </tr>
     <% end %>
-
+  </div>
 </div>
