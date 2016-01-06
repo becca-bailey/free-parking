@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :sent_invitations, class_name: "Invite", foreign_key: :sender_id
   has_many :created_games, class_name: "Game", foreign_key: :creator_id
 
-  validates :email, :format => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  validates :email, uniqueness: true, :format => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates_confirmation_of :password, :message => "Passwords must match."
   validates_length_of :name, :maximum => 20, :message => "Name must be less than 20 characters."
 

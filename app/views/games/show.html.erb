@@ -23,8 +23,8 @@
           <li><div class="button game small-3"><%= link_to "Leave A Review", new_game_review_path(@game) %></div></li>
         <% end %>
         <% if @game.creator == current_user %>
-          <li><div class="button game small-3"><%= link_to "Delete My Review", game_path(@game), method: :delete %></div></li>
-          <li><div class="button game small-3"><%= link_to "Edit My Review", edit_game_path(@game) %></div></li>
+          <li><div class="button game small-3"><%= link_to "Delete My Game", game_path(@game), method: :delete %></div></li>
+          <li><div class="button game small-3"><%= link_to "Edit My Game", edit_game_path(@game) %></div></li>
         <% end %>
       </ul>
     </div>

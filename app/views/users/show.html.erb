@@ -37,6 +37,9 @@
   </div>
 
   <div class="my-reviews">
+    <% unless current_user.reviews %>
+      <p>It looks like you haven't reviewed any games yet!  Click on a game to add a review.</p>
+    <% end %>
       <% @user.reviews.each do |review| if @user.reviews %>
         Game Name: <%= review.game.name %>
         <%= render partial: "user_review", locals: {review: review} %>
@@ -45,4 +48,3 @@
   </div>
 
  </div>
-
