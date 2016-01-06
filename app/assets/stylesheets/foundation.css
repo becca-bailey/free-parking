@@ -91,7 +91,8 @@ a {
    */
 a:active,
 a:hover {
-  outline: 0; }
+  outline: 0; 
+  text-decoration: underline;}
 
 /* Text-level semantics
      ========================================================================== */
@@ -1215,9 +1216,13 @@ h6 {
   h1 {
     font-size: 3rem; }
   h2 {
-    font-size: 2.5rem; }
+    font-size: 2rem; 
+  }
   h3 {
-    font-size: 1.9375rem; }
+    font-size: 1.5rem; 
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+  }
   h4 {
     font-size: 1.5625rem; }
   h5 {
@@ -1468,12 +1473,7 @@ kbd {
     .button.success:hover, .button.success:focus {
       background: #22bb5b;
       color: #fff; }
-  .button.color-5 {
-    background: #a91c44;
-    color: #fff; }
-    .button.color-5:hover, .button.color-5:focus {
-      background: #4F0D1F;
-      color: #fff; }
+  
   .button.alert {
     background: #ec5840;
     color: #fff; }
@@ -1946,7 +1946,7 @@ select {
     clear: both; }
   .button-group .button {
     float: left;
-    margin: 0;
+    /*margin: 0;*/
     font-size: inherit; }
     .button-group .button:not(:last-child) {
       border-right: 1px solid #fefefe; }
@@ -2951,7 +2951,8 @@ table {
     background-color: #f1f1f1; }
   tbody th,
   tbody td {
-    padding: 0.5rem 0.625rem 0.625rem; }
+    padding: .5rem 1.5rem; 
+    text-align: center}
 
 @media screen and (max-width: 63.9375em) {
   table.stack thead {
