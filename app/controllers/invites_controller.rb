@@ -13,7 +13,7 @@ class InvitesController < ApplicationController
     if @invite.save
       InviteMailer.send_invite(@invite).deliver_now
       flash[:message] = "Invite sent!"
-      redirect_to root_path
+      redirect_to "/"
     else
       flash[:alert] = "Invalid email, please try again."
       render "invites/new"
