@@ -48,19 +48,13 @@
     <div class="large-12 columns">
       <ul class="button-group">
         <li><%= link_to "All Games", root_path, class: 'button new small-3' %></li>
-        <li><% if current_user %>
-    <%= link_to new_game_path, class: 'button new right small-3' do %>
-    Add a Game <i class="fa fa-plus-circle"></i>
-    <% end %>
-  <% end %></li>
+        <li><% if current_user %><%= link_to new_game_path, class: 'button new right small-3' do %>Add a Game <i class="fa fa-plus-circle"></i><% end %><% end %></li>
 
       </ul>
     </div>
   </nav>
-
-
-
   </div>
+
   <div class="alert">
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg %>

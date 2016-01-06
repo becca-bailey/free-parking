@@ -4,7 +4,7 @@ body {
 
 .container {
 	background-color: #ffffff;
-	border: 2pt solid #c6ceb2;
+	border: 4pt solid #c6ceb2;
 	border-radius: 30px;
   margin: 0 auto;
   padding: 2%;
@@ -13,7 +13,7 @@ body {
 }
 
 .container-nested {
-  /*background-color: #ffffff;*/
+  background-color: #FBFFF0;
   /*border: 5pt solid #c6ceb2;*/
   /*border-radius: 30px;*/
   /*margin: 0 auto;*/
@@ -23,21 +23,23 @@ body {
 
 /* LAYOUT CSS */
 .responsive-img {
-    max-width: 100%;
-    height: auto;
-    width: 100%;
+    /*max-width: 100%;*/
+    /*margin: 0 100rem;*/
+/*    height: auto;
+    width: 100%;*/
 }
 /* =Top Bar
 -------------------------------------------------------------- */
 #top-bar {
   background-color: #311c3a;
+  padding: 1%;
 }
 
 #top-bar a {
   color: white;
   /*display: inline-block;*/
-  font-size: .8em;
-  margin: 0 10px;
+  font-size: 1em;
+  margin: 0 2%;
   padding: 5px;
   text-transform: uppercase;
 }
@@ -113,7 +115,8 @@ ul.button-group {
 
 .button.color-5 {
     background: #a91c44;
-    color: #fff; }
+    color: #fff;
+    font-size: 1.4em; }
     .button.color-5:hover, .button.color-5:focus {
       background: #4F0D1F;
       color: #fff; }
@@ -190,6 +193,7 @@ td a {
 }
 
 .game-img {
+  /*position: absolute;*/
   max-width: 250px;
   max-height: 250px;
 }
@@ -211,8 +215,8 @@ text-align: center;
 
 .review-details ul li {
   background-color: #FBFFF0;
-  padding: 20px;
-  margin: 10px;
+  padding: 2%;
+
   display: inline-block;
   font-size: 12pt;
   /*text-align: center;*/
@@ -267,9 +271,23 @@ text-align: center;
   padding: 3%;
   width: 100%;
   font-size: 1.4em;
+  background-color: #311c3a;
+  margin-top: 1%;
+  margin-bottom: 2%;
 }
 
 .bullets {
   line-height: 1;
 }
 
+/*.center {
+  margin: 0 auto;
+  width: 100%;
+}
+*/
+
+footer {
+  background-color: #311c3a;
+  padding: 1%;
+  margin-top: 1%;
+}

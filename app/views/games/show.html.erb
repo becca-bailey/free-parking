@@ -9,7 +9,7 @@
     </ul>
   </div>
 
- <div class="game-img"><img src="<%= @game.image_url %>"> </div>
+ <div class="game-img clearfix"><img src="<%= @game.image_url %>"> </div>
       <p><strong>Description: </strong><%= @game.description %></p>
       <p><strong>Link: </strong><%= link_to @game.info_link, @game.info_link %></p>
 
@@ -35,9 +35,8 @@
     </span>
     </h2>
   <% end %>
-  </div>
 
-    <div class="has-game">
+      <div class="has-game">
     <% current_user.groups.each do |group| %>
       <div class="group_games">
         <ul>
@@ -45,7 +44,7 @@
             <% user.games.each do |game| %>
               <% if @game.name == game.name %>
                 <% if current_user.id != user.id %>
-                    <li><%= user.name %> has this game.</li>
+                    <li><h6><i class="fa fa-star"></i> <%= user.name %> has this game.</h6></li>
                 <% end %>
               <% end %>
             <% end %>
@@ -54,8 +53,11 @@
       </div>
     <% end %>
   <% end %>
+  </div>
 
-<div class="container clearfix"><h4>All Reviews: </h4><%= render @reviews %></div>
+
+
+<div class="container-nested clearfix"><h4>All Reviews: </h4><%= render @reviews %></div>
 
 
 
@@ -64,3 +66,4 @@
 
 </div>
 </div>
+<footer></footer>
