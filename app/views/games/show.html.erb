@@ -40,7 +40,7 @@
   <div class="review_header"><h4>Reviews: </h4></div>
   <%= render @reviews %>
 
-  <% if current_user.games.include?(@game) %>
+  <% if current_user && current_user.games.include?(@game) %>
       <p>You own this game!</p>
       <%= link_to 'Remove game from your collection', delete_game_path(@game), method: :delete%>
   <% else %>

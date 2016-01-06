@@ -9,9 +9,9 @@
   Content: <%= review.content %>
 </div>
 <div class="reviewer">
-  Author: <%= review.reviewer.name %></li>
+  Author: <%= link_to review.reviewer.name, user_path(review.reviewer) %></li>
 </div>
-<% if current_user.name == review.reviewer.name %>
+<% if current_user && current_user.name == review.reviewer.name %>
   <%= link_to "Delete", game_review_path(@game, review), method: :delete %>
   <%= link_to "Edit", edit_game_review_path(@game, review) %>
 <% end %>
