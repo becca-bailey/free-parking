@@ -9,6 +9,4 @@ class Group < ActiveRecord::Base
 
 
   validates_length_of :name, :maximum => 30, :message => "Group names must be less than 30 characters long."
-
-
 end

@@ -7,6 +7,7 @@ class GamesController < ApplicationController
       @games = Game.all.sort_by { |a| a.name }
     end
 
+
     case params[:sort_by]
     when "name_asc"
       @games = @games.sort_by { |a| a.name }

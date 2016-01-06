@@ -37,12 +37,13 @@
   </div>
 
   <div class="my-reviews">
-      <% @user.reviews.each do |review| if @user.reviews %>
-        Game Name: <%= review.game.name %>
-        <%= render partial: "user_review", locals: {review: review} %>
+
+        <% @user.reviews.each do |review| if @user.reviews %>
+          Game Name: <%= find_review_game(review).name %>
+          <%= render partial: "user_review", locals: {review: review} %>
         <% end %>
-    <% end %>
+      <% end %>
+
   </div>
 
  </div>
-
