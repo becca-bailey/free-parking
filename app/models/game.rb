@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :owned_games
   has_many :owners, through: :owned_games, source: :user
   belongs_to :creator, class_name: "User"
