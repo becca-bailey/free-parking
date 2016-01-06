@@ -1,5 +1,7 @@
 <div class="container">
-      <%= link_to "Create a Group", new_group_path, class: 'button right color-5' %>
+    <%= link_to new_group_path, class: 'button new right small-3' do %>
+    Create a New Group <i class="fa fa-plus-circle"></i>
+    <% end %>
   <div class="bio_profile">
     <h2><%=link_to @user.name, user_path(@user.id) %></h2>
     <h2><%= @user.email %></h2>
