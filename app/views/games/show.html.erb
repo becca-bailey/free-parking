@@ -9,61 +9,47 @@
     </ul>
   </div>
 
- <div class="game-img clearfix"><img src="<%= @game.image_url %>"> </div>
-      <p><strong>Description: </strong><%= @game.description %></p>
-      <p><strong>Link: </strong><%= link_to @game.info_link, @game.info_link %></p>
+  <% if @game.image_url %>
+    <div class="game-img"><img src="<%= @game.image_url %>"> </div>
+  <% end %>
 
+  <p><strong>Description: </strong><%= @game.description %></p>
+  <p><strong>Link: </strong><%= link_to @game.info_link, @game.info_link %></p>
 
-    <nav class="row">
-      <div class="large-12 columns">
-        <ul class="button-group">
-          <% if current_user %>
-            <li><div class="button game small-3"><%= link_to "Leave A Review", new_game_review_path(@game) %></div></li>
-          <% if @game.creator == current_user %>
-            <li><div class="button game small-3"><%= link_to "Delete My Review", game_path(@game), method: :delete %></div></li>
-            <li><div class="button game small-3"><%= link_to "Edit My Review", edit_game_path(@game) %></div></li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+  <nav class="row">
+    <div class="large-12 columns">
+      <ul class="button-group">
+        <% if current_user %>
+          <li><div class="button game small-3"><%= link_to "Leave A Review", new_game_review_path(@game) %></div></li>
+        <% end %>
+        <% if @game.creator == current_user %>
+          <li><div class="button game small-3"><%= link_to "Delete My Review", game_path(@game), method: :delete %></div></li>
+          <li><div class="button game small-3"><%= link_to "Edit My Review", edit_game_path(@game) %></div></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
   <% if current_user.games.include?(@game) %>
       <h2>You own this game!<span class="sm">
     <%= link_to 'Click to remove game from your collection', delete_game_path(@game), method: :delete%></span></h2>
   <% else %>
-    <h2><%= link_to "Add game to your collection!", add_game_path, method: :post %>
-    </span>
-    </h2>
+    <h3><%= link_to "Add game to your collection!", add_game_path, method: :post %></h3>
   <% end %>
 
-      <div class="has-game">
-    <% current_user.groups.each do |group| %>
-      <div class="group_games">
-        <ul>
-          <% group.members.each do |user| %>
-            <% user.games.each do |game| %>
-              <% if @game.name == game.name %>
-                <% if current_user.id != user.id %>
-                    <li><h6><i class="fa fa-star"></i> <%= user.name %> has this game.</h6></li>
-                <% end %>
-              <% end %>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
+<div class="has-game">
+  <h3>Friends who own this game: </h3>
+  <% if friends_have_game(@game) %>
+    <% friends_have_game(@game).each do |friend| %>
+      <ul>
+        <li><%= link_to friend.name, user_path(friend) %></li>
+      </ul>
     <% end %>
   <% end %>
   </div>
 
-
-
-<div class="container-nested clearfix"><h4>All Reviews: </h4><%= render @reviews %></div>
-
-
-
-
-
+  <div class="container-nested clearfix"><h4>All Reviews: </h4><%= render @reviews %></div>
 
 </div>
-</div>
+
 <footer></footer>

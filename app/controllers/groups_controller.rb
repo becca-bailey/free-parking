@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @grouping = Grouping.find_by(group_id: @group.id, user_id: current_user.id)
   end
 
   def new
