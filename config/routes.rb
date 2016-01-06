@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete "/users/games/:id" => "users#remove_game", as: "delete_game"
   get "/invites/accept" => "invites#accept"
   post "/groups/:group_id/invites/:id" => "invites#join", as: "join_group"
+  delete "/groupings/:id" => "groupings#destroy", as: "delete_grouping"
   resources :groups, except: [:index] do
     resources :invites
   end

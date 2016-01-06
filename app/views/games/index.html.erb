@@ -1,33 +1,33 @@
 <div class = "container">
-  <h1>Welcome to Free Parking!</h1> 
+  <h1>Welcome to Free Parking!</h1>
   <h3>The source for all of your board-gaming-nerd-loving needs</h3>
   <div class = "alphabet_nav">
-  <ul> | <%= link_to "All", games_path %> |
-  <% @alphabet.each do |letter| %>
-      <%= link_to letter, games_path(:alphabet_sort => letter) %> |
-  <% end %>
-  </ul>
+    <ul> | <%= link_to "All", games_path %> |
+      <% @alphabet.each do |letter| %>
+          <%= link_to letter, games_path(:alphabet_sort => letter) %> |
+      <% end %>
+    </ul>
   </div>
 <div class="table">
   <table>
     <tr>
       <div class = "table_header_row">
-        <% if params[:sort_by] == "name_asc" %>
+        <% if compare(params[:sort_by], "name_asc") %>
           <td><%= link_to "Name", games_path(:sort_by => "name_desc", :alphabet_sort => params[:alphabet_sort]) %></td>
         <% else %>
           <td><%= link_to "Name", games_path(:sort_by => "name_asc", :alphabet_sort => params[:alphabet_sort]) %></td>
         <% end %>
-        <% if params[:sort_by] == "fun_asc" %>
+        <% if compare(params[:sort_by], "fun_asc") %>
           <td><%= link_to "Fun Rating", games_path(:sort_by => "fun_desc", :alphabet_sort => params[:alphabet_sort]) %></td>
         <% else %>
           <td><%= link_to "Fun Rating", games_path(:sort_by => "fun_asc", :alphabet_sort => params[:alphabet_sort]) %></td>
         <% end %>
-        <% if params[:sort_by] == "dif_asc" %>
+        <% if compare(params[:sort_by], "dif_asc") %>
           <td><%= link_to "Difficulty Rating", games_path(:sort_by => "dif_desc", :alphabet_sort => params[:alphabet_sort]) %></td>
         <% else %>
           <td><%= link_to "Difficulty Rating", games_path(:sort_by => "dif_asc", :alphabet_sort => params[:alphabet_sort]) %></td>
         <% end %>
-        <% if params[:sort_by] == "players_asc" %>
+        <% if compare(params[:sort_by], "players_asc") %>
           <td><%= link_to "Players", games_path(:sort_by => "players_desc", :alphabet_sort => params[:alphabet_sort]) %></td>
         <% else %>
           <td><%= link_to "Players", games_path(:sort_by => "players_asc", :alphabet_sort => params[:alphabet_sort]) %></td>

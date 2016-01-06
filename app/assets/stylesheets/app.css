@@ -4,39 +4,42 @@ body {
 
 .container {
 	background-color: #ffffff;
-	border: 2pt solid #c6ceb2;
+	border: 4pt solid #c6ceb2;
 	border-radius: 30px;
   margin: 0 auto;
-  padding: 5%;
+  padding: 2%;
   width: 90%;
+  height: auto;
 }
 
 .container-nested {
-  background-color: #ffffff;
-  border: 5pt solid #c6ceb2;
-  border-radius: 30px;
-  margin: 0 auto;
-  padding: 3%;
+  background-color: #FBFFF0;
+  /*border: 5pt solid #c6ceb2;*/
+  /*border-radius: 30px;*/
+  /*margin: 0 auto;*/
+  padding: 2%;
   width: 100%;
 }
 
 /* LAYOUT CSS */
 .responsive-img {
-    max-width: 100%;
-    height: auto;
-    width: 100%;
+    /*max-width: 100%;*/
+    /*margin: 0 100rem;*/
+/*    height: auto;
+    width: 100%;*/
 }
 /* =Top Bar
 -------------------------------------------------------------- */
 #top-bar {
   background-color: #311c3a;
+  padding: 1%;
 }
 
 #top-bar a {
   color: white;
   /*display: inline-block;*/
-  font-size: .8em;
-  margin: 0 10px;
+  font-size: 1em;
+  margin: 0 2%;
   padding: 5px;
   text-transform: uppercase;
 }
@@ -83,8 +86,9 @@ span.profile {
 .my-groups, .my-reviews, .my-games {
   border: 1pt solid silver;
   width: 45%;
-  padding: 10px;
-  /*margin-top: 20px;*/
+  padding:30px;
+  margin-top: 20px;
+  border-radius: 30px;
 
 }
 
@@ -111,7 +115,8 @@ ul.button-group {
 
 .button.color-5 {
     background: #a91c44;
-    color: #fff; }
+    color: #fff;
+    font-size: 1.4em; }
     .button.color-5:hover, .button.color-5:focus {
       background: #4F0D1F;
       color: #fff; }
@@ -131,7 +136,7 @@ ul.button-group {
     color: #fff; }
     .button.new:hover, .button.new:focus {
       background: #6F823E;
-      color: #fff; }      
+      color: #fff; }
 
 .button.game {
   /*border-radius: 0;*/
@@ -139,7 +144,7 @@ ul.button-group {
     background-color: #a91c44;
     color: #C6CEB2; }
     .button.game:hover, .button.game:focus {
-      color: #C6CEB2; 
+      color: #C6CEB2;
       background: #4F0D1F;
     }
 
@@ -188,6 +193,7 @@ td a {
 }
 
 .game-img {
+  /*position: absolute;*/
   max-width: 250px;
   max-height: 250px;
 }
@@ -196,20 +202,21 @@ td a {
 display: inline-block;
 font-size: 12pt;
 text-align: center;
+  margin-left: 10%;
 }
 
 .game-reviews {
   background-color: #FBFFF0;
   padding: 10px;
   margin: 10px;
-  display: inline-block;
+  display: inline;
   font-size: 12pt;
 }
 
 .review-details ul li {
   background-color: #FBFFF0;
-  padding: 20px;
-  margin: 10px;
+  padding: 2%;
+
   display: inline-block;
   font-size: 12pt;
   /*text-align: center;*/
@@ -249,4 +256,38 @@ text-align: center;
 
 .sm {
   font-size: .75em;
+}
+
+.has_game {
+
+}
+.nav-wrapper {
+
+}
+
+.alert {
+  color: #1eb0d4;
+  margin: 0 auto;
+  padding: 3%;
+  width: 100%;
+  font-size: 1.4em;
+  background-color: #311c3a;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.bullets {
+  line-height: 1;
+}
+
+/*.center {
+  margin: 0 auto;
+  width: 100%;
+}
+*/
+
+footer {
+  background-color: #311c3a;
+  padding: 1%;
+  margin-top: 1%;
 }
