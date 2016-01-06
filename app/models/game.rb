@@ -4,6 +4,9 @@ class Game < ActiveRecord::Base
   has_many :owners, through: :owned_games, source: :user
   belongs_to :creator, class_name: "User"
 
+  validates_numericality_of :min_players
+  validates_numericality_of :max_players, :greater_than_or_equal_to => :min_players, :message => "Max players must be greater or equal to min min_players`ers"
+
   def fun_average
     if !reviews.empty?
       total = 0

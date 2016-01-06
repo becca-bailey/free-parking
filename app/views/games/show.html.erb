@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container clearfix">
 
 <h2><%= @game.name %></h2>
 
@@ -8,11 +8,13 @@
       <li><strong>Difficulty Score: </strong><br><div class="rating"><h2><%= @game.difficulty_average %></h2></div></li>
     </ul>
   </div>
+
   <% if @game.image_url %>
     <div class="game-img"><img src="<%= @game.image_url %>"> </div>
-      <p><strong>Description: </strong><%= @game.description %></p>
-      <p><strong>Link: </strong><%= link_to @game.info_link, @game.info_link %></p>
   <% end %>
+
+  <p><strong>Description: </strong><%= @game.description %></p>
+  <p><strong>Link: </strong><%= link_to @game.info_link, @game.info_link %></p>
 
   <nav class="row">
     <div class="large-12 columns">
@@ -32,7 +34,7 @@
       <h2>You own this game!<span class="sm">
     <%= link_to 'Click to remove game from your collection', delete_game_path(@game), method: :delete%></span></h2>
   <% else %>
-    <h3><%= link_to "Add game to your collection!", add_game_path, method: :post %></span></h3>
+    <h3><%= link_to "Add game to your collection!", add_game_path, method: :post %></h3>
   <% end %>
 
 <div class="has-game">
@@ -44,15 +46,10 @@
       </ul>
     <% end %>
   <% end %>
-</div>
-
-<div class="container-nested">
-  <div class="review_header">
-    <h4>All Reviews: </h4>
   </div>
-    <%= render @reviews %>
-</div>
+
+  <div class="container-nested clearfix"><h4>All Reviews: </h4><%= render @reviews %></div>
 
 </div>
 
-
+<footer></footer>
