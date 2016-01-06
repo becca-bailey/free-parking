@@ -1,4 +1,5 @@
 class InvitesController < ApplicationController
+  before_action :check_membership, only: [:new, :create]
 
   def new
     @invite = Invite.new
@@ -50,4 +51,13 @@ class InvitesController < ApplicationController
   def invite_params
     params.require(:invite).permit(:email, :token)
   end
+
+  def check_membership
+    @group = Group.find(params[:group_id])
+    unless @group.members.include?(current_user)
+      flash[:notice] = "You must be a member to invite people to join this group.."
+      redirect_to login_path
+    end
+  end
+
 end
