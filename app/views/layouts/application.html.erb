@@ -47,7 +47,9 @@
   <nav class="row">
     <div class="large-12 columns">
       <ul class="button-group">
+        <% unless current_page?(root_path) %>
         <li><%= link_to "All Games", root_path, class: 'button new small-3' %></li>
+        <% end %>
         <li><% if current_user %><%= link_to new_game_path, class: 'button new right small-3' do %>Add a Game <i class="fa fa-plus-circle"></i><% end %><% end %></li>
 
       </ul>
