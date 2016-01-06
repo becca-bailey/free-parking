@@ -3213,5 +3213,3 @@ table.hover tr:nth-of-type(even):hover {
 [type='text']:hover, [type='password']:hover {
   border-bottom: 6px solid #a91c44;
 }
-
-    }
