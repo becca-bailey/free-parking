@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Game do
+describe Group do
   let(:group) {Group.new}
 
   it "creates a invalid group"  do

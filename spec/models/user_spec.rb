@@ -8,7 +8,7 @@ describe User do
   end
 
   it "creates a valid user" do
-    user = User.new(name: "Colin", email: "Colins email", password: "Hello")
+    user = User.new(name: "Colin", email: "email@email.com", password: "Hello")
     expect(user.valid?).to be true
   end
 

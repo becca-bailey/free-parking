@@ -30,26 +30,27 @@
     </div>
   </nav>
 
-  <% if current_user.games.include?(@game) %>
+  <% if current_user && current_user.games.include?(@game) %>
       <h2>You own this game!<span class="sm">
     <%= link_to 'Click to remove game from your collection', delete_game_path(@game), method: :delete%></span></h2>
-  <% else %>
+  <% elsif current_user %>
     <h3><%= link_to "Add game to your collection!", add_game_path, method: :post %></h3>
   <% end %>
 
-<div class="has-game">
-  <h3>Friends who own this game: </h3>
-  <% if friends_have_game(@game) %>
-    <% friends_have_game(@game).each do |friend| %>
-      <ul>
-        <li><%= link_to friend.name, user_path(friend) %></li>
-      </ul>
-    <% end %>
+  <% if current_user %>
+    <div class="has-game">
+      <h3>Friends who own this game: </h3>
+      <% if friends_have_game(@game) %>
+        <% friends_have_game(@game).each do |friend| %>
+          <ul>
+            <li><%= link_to friend.name, user_path(friend) %></li>
+          </ul>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
-  </div>
 
   <div class="container-nested clearfix"><h4>All Reviews: </h4><%= render @reviews %></div>
-
 </div>
 
 <footer></footer>

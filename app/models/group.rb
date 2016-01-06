@@ -12,6 +12,5 @@ class Group < ActiveRecord::Base
   # def member_has_game(game)
   #   members.find_by()
   # end
->>>>>>> e76e96fc1d362f4433d161126e0bf00b381eab0e
 
 end
