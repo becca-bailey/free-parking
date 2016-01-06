@@ -42,7 +42,6 @@
 
 <header>
   <%= link_to image_tag ("freeparkinglogo.png") %>
-
 </header>
 
   <nav class="row">
@@ -58,13 +57,15 @@
       </ul>
     </div>
   </nav>
- 
+
 
 
   </div>
+  <div class="alert">
   <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: flash %>
+    <%= content_tag :div, msg %>
   <% end %>
+</div>
 <%= yield %>
 
 </div>
